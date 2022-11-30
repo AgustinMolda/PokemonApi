@@ -50,6 +50,7 @@ public class MainPokemon {
 		//System.out.println("atacando despues "+charizard.getNombre()+" "+charizard.atacar());
 		
 		
+		System.err.println("algo");
 		
 		
 		
