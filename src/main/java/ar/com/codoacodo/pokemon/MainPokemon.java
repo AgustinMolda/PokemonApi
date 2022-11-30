@@ -31,9 +31,9 @@ public class MainPokemon {
 		
 		//testeando pokemon
 		
-		Pikachu pikachu = new Pikachu();
+		Pikachu pikachu = new Pikachu("Pikachu");
 		pikachu.aprenderAtaque(new Ataque("cabesazo",8));
-		System.out.println("atacando"+pikachu.getNombre()+" "+pikachu.atacar());
+		//System.out.println("atacando"+pikachu.getNombre()+" "+pikachu.atacar());
 		
 		//https://pokeapi.co/api/v2/pokemon/
 		// pat: 
@@ -41,13 +41,13 @@ public class MainPokemon {
 		
 		Psyduck psyduck = new Psyduck();
 		psyduck.aprenderAtaque(new Ataque("cabesazo",8));
-		System.out.println("atacando"+psyduck.getNombre()+" "+psyduck.atacar());
+		//System.out.println("atacando"+psyduck.getNombre()+" "+psyduck.atacar());
 		
 		Charizard charizard = new Charizard();
-		System.out.println("atacando primero "+charizard.getNombre()+" "+charizard.atacar());
+		//System.out.println("atacando primero "+charizard.getNombre()+" "+charizard.atacar());
 		
 		charizard.aprenderAtaque(new Ataque("cabesazo",8));
-		System.out.println("atacando despues "+charizard.getNombre()+" "+charizard.atacar());
+		//System.out.println("atacando despues "+charizard.getNombre()+" "+charizard.atacar());
 		
 		
 		
@@ -109,10 +109,9 @@ public class MainPokemon {
 			 }
 		
 		
-	//	pikachu.aprenderAtaque(att); //error de casteo
-		//pikachu.recorrerAtaques();
+	
 		
-		/*
+		
 		System.out.println("ataques: "+pokes.size());
 		List<Move> atack = new ArrayList() ;
 		atack.addAll(pokes);
@@ -131,7 +130,7 @@ public class MainPokemon {
 		//System.out.println("iterando ataques: "+p);
 		 }
 		 
-		System.out.println( b.moves.get(1).move.name );
+		//System.out.println( b.moves.get(1).move.name );
 	
 		
 		List<Stat> hp = b.stats;
@@ -143,19 +142,33 @@ public class MainPokemon {
 			 }
 
 		//experiencia
-		System.out.println(b.baseExperience);
+		//System.out.println(b.baseExperience);
 		
 		
 		//defensa
-		System.out.println("defensa: "+b.stats.get(2).stat.name);
-		System.out.println("defensa: "+b.stats.get(2).baseStat);
-		*/
+	//	System.out.println("defensa: "+b.stats.get(2).stat.name);
+	//	System.out.println("defensa: "+b.stats.get(2).baseStat);
+		
 		
 	
 		// convierte el array b que trae los datos de la api pokemon el json
-		ObjectMapper mapper = new ObjectMapper();
-		System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(b));
+		/*ObjectMapper mapper = new ObjectMapper();
+		System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(b));*/
+		
+		ObjectMapper mapper2 = new ObjectMapper();
+		//System.out.println(mapper2.writerWithDefaultPrettyPrinter().writeValueAsString(b.moves));
 	
+	   pikachu.aprenderUnAtaque(atack);
+	   
+	   //pikachu.recorrerAtaques();
+	   
+	   
+	   
+	  // System.out.println("atacando "+pikachu.getNombre()+" "+pikachu.atacar());
+	   
+	   System.out.println(b.stats.get(1).baseStat+" "+b.stats.get(1).stat.name);
+	   System.out.println(b.stats.get(2).baseStat+" "+b.stats.get(2).stat.name);
+	   
 	}
 }
 	

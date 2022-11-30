@@ -25,11 +25,6 @@ public class Psyduck extends Pokemon{
 		return 0;
 	}
 
-	@Override
-	public void aprenderAtaque(List ataque) {
-		ataques.add((Ataque) ataque);
-		
-	}
-   
+
 	
 }

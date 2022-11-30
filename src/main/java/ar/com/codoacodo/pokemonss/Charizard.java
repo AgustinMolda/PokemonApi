@@ -32,11 +32,7 @@ public class Charizard extends Pokemon{
 	}
 
 
-	@Override
-	public void aprenderAtaque(List ataque) {
-		ataques.add((Ataque) ataque);
-		
-	}
+	
    
 	
 }
