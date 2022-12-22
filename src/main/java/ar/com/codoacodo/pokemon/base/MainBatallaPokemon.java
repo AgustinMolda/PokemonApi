@@ -6,9 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ar.com.codoacodo.pokeapi.Move;
 import ar.com.codoacodo.pokeapi.PokeApi;
-import ar.com.codoacodo.pokemon.buscarpokemonapi;
 
 public class MainBatallaPokemon {
 	
@@ -139,13 +137,8 @@ public class MainBatallaPokemon {
 	
 	public static void main(String[] args) throws IOException {
 		
-		buscarpokemonapi bp = new buscarpokemonapi("https://pokeapi.co/");
-		
-		
-		
-		
-			PokeApi b = bp.findUsers(25);
-			System.out.println(b.name);	
+	
+			
 		
 
 			ObjectMapper mapper2 = new ObjectMapper();
@@ -153,9 +146,10 @@ public class MainBatallaPokemon {
 			//System.out.println(mapper2.writerWithDefaultPrettyPrinter().writeValueAsString(b.stats.get(3)));
 			
 			
-		
+			PokeApi b = new PokeApi();
 			
-			GestionaPokemon pikachu = new GestionaPokemon(b.id,b.name,  b.types.get(0).type.name, b.moves, MainBatallaPokemon.cargarImagenesFront(b),b.stats.get(0).baseStat, b.weight ,b.stats.get(2).baseStat,b.stats.get(5).baseStat ,b.stats.get(4).baseStat ,b.stats.get(1).baseStat,b.baseExperience,b.stats.get(3).baseStat, MainBatallaPokemon.cargarImagenesBack(b));
+			GestionaPokemon pikachu = new GestionaPokemon(b);
+			
 			
 			
 			/*for(Move mov : pikachu.moves) {
@@ -166,13 +160,17 @@ public class MainBatallaPokemon {
 			
 			//System.out.println(pikachu.getImagenesFront(5));
 			
-			System.out.println(pikachu.getImagenesFront(3, "front"));
+			//System.out.println(pikachu.getImagenesFront(3));
 			
 	
 			
-			
+			 //System.out.println(pikachu.getMoves());
 			//System.out.println(mapper2.writerWithDefaultPrettyPrinter().writeValueAsString(pikachu.toString()));
-
+			
+			
+			 
+			System.out.println(pikachu.attak(3));
+			System.out.println(pikachu.Specialattak(3));
 			
 			
 	}
