@@ -58,7 +58,7 @@ public class mainDumy {
 			}
 		System.out.println(listaPokemon.get(1).name);
 		//listaPokemon.forEach(System.out:: println);
-		
+	
 		}
 	}
 

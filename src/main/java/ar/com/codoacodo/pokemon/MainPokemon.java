@@ -50,7 +50,7 @@ public class MainPokemon {
 		//System.out.println("atacando despues "+charizard.getNombre()+" "+charizard.atacar());
 		
 		
-		System.err.println("algo");
+		
 		
 		
 		
@@ -159,7 +159,7 @@ public class MainPokemon {
 		ObjectMapper mapper2 = new ObjectMapper();
 		//System.out.println(mapper2.writerWithDefaultPrettyPrinter().writeValueAsString(b.moves));
 	
-	   pikachu.aprenderUnAtaque(atack);
+	 //  pikachu.aprenderUnAtaque(atack);
 	   
 	   //pikachu.recorrerAtaques();
 	   
@@ -167,9 +167,11 @@ public class MainPokemon {
 	   
 	  // System.out.println("atacando "+pikachu.getNombre()+" "+pikachu.atacar());
 	   
-	   System.out.println(b.stats.get(1).baseStat+" "+b.stats.get(1).stat.name);
-	   System.out.println(b.stats.get(2).baseStat+" "+b.stats.get(2).stat.name);
-	   
+	   //System.out.println(b.stats.get(1).baseStat+" "+b.stats.get(1).stat.name);
+	   //System.out.println(b.stats.get(2).baseStat+" "+b.stats.get(2).stat.name);
+	 
+		
+		//Tipo de pokemon b.types.get(0).type.name;
 	}
 }
 	
