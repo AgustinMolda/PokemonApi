@@ -3,11 +3,11 @@ package ar.com.codoacodo.pokemon.base;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ar.com.codoacodo.pokeapi.Move;
 import ar.com.codoacodo.pokeapi.PokeApi;
 import ar.com.codoacodo.pokemon.buscarpokemonapi;
 
@@ -21,8 +21,13 @@ protected Collection<String> imagenesBack;
 private Integer hp,peso,defence,speed,specialDefence,atack,baseExperiencia;
 private Integer specialAtak;
 
-public GestionaPokemon(PokeApi b) throws IOException {
+public GestionaPokemon(  Integer numPokemon) throws IOException {
+
+	buscarpokemonapi bp = new buscarpokemonapi("https://pokeapi.co/");
 	
+	
+	
+	PokeApi	b = bp.findUsers(numPokemon);
 	
 	this.nombre = b.name;
 	this.tipo = b.types.get(0).type.name;
@@ -41,9 +46,34 @@ public GestionaPokemon(PokeApi b) throws IOException {
 	
 	
 	
+}
+
+public GestionaPokemon() {
 	buscarpokemonapi bp = new buscarpokemonapi("https://pokeapi.co/");
 	
-	b = bp.findUsers(25);
+	
+	
+	PokeApi	b = bp.findUsers();
+	
+	this.nombre = b.name;
+	this.tipo = b.types.get(0).type.name;
+	this.hp = b.stats.get(0).baseStat;
+	this.moves = b.moves.stream().map(m-> m.move.name).collect(Collectors.toList());
+	this.imagenesFront = cargarImagenesFront(b);
+	this.imagenesBack  = cargarImagenesBack(b);
+	this.peso =  b.weight;
+	this.defence = b.stats.get(2).baseStat;
+	this.speed = b.stats.get(5).baseStat;
+	this.specialDefence = b.stats.get(4).baseStat;
+	this.atack = b.stats.get(1).baseStat;
+	this.baseExperiencia = b.baseExperience;
+	this.specialAtak = b.stats.get(3).baseStat;
+	
+}
+
+
+public Integer getHp() {
+	return hp;
 }
 
 public void setImagenes(Collection<String> imagenes) {
@@ -120,25 +150,36 @@ public String getImagenesFront(int n) {
 }
     
 
+public String getNombre() {
+	return nombre;
+}
+
 public String getImagenesBack(int n) {
 	String imgBack="";
 	
 	int sum = 0;
     
     Iterator<String> it = this.imagenesBack.iterator();
+  
     while (it.hasNext()){
     	
+    	
     	imgBack = it.next();
+    	
     	sum++;
-    	if(n == sum) {
+    
+    	if(n == sum){
     		break;
     	}
+    	
     }
-    
+    	
 	return imgBack;
 }
     
 	
+
+
 
 public Collection<String> getImagenesBack() {
 	return imagenesBack;
@@ -173,7 +214,19 @@ public void recibirDanioSpecial(Integer ataque){
 		System.out.println("El pokemon esta inconciente y no puede pelear");
 	}
 	
+	
 }
+
+public int cantidadImgBack() {
+	
+	
+	
+	
+	return this.imagenesBack.size();
+	
+}
+
+
 
 public static List<String> cargarImagenesFront(PokeApi p){
 	List<String> img = new ArrayList<>();
@@ -243,8 +296,10 @@ public static List<String> cargarImagenesFront(PokeApi p){
 	
 	img.add((String) p.sprites.frontDefault);
 	
+	img.removeAll(Collections.singletonList(null));
+		return img;
+		
 	
-	return img;
 }
 
 public static List<String> cargarImagenesBack(PokeApi p){
@@ -293,7 +348,7 @@ img.add((String) p.sprites.versions.generationV.blackWhite.animated.backFemale);
 img.add((String) p.sprites.versions.generationV.blackWhite.animated.backShinyFemale);
 
 
-
+img.removeAll(Collections.singletonList(null));
 
 return img;
 }
