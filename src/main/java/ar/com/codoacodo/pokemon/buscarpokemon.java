@@ -34,7 +34,7 @@ public class buscarpokemon {
 				//get
 				Response response = invocation.get();
 				int responseCode = response.getStatus();
-				System.out.println("conectando"+responseCode);
+				
 				//read
 				
 
